@@ -1,12 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
-    <h1>Inicio</h1>
-</body>
-</html>
+{% extends 'base.html' %}  
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="px-4 pt-5 my-5 text-center">
+    <h1 class="display-4 fw-bold text-body-emphasis mb-3">Gestión de Eventos y Participantes</h1>
+    <div class="col-lg-8 mx-auto">
+        <p class="lead mb-5">
+            Organiza y registra tus eventos de manera simple y eficiente.
+            Nuestra plataforma te permite crear eventos con toda la información relevante: 
+            nombre, fecha y ubicación, además de gestionar la lista de participantes con 
+            sus datos de contacto. Todo en un solo lugar.
+        </p>
+    </div>
+</div>
+
+<!-- Cards de Tipos de Eventos -->
+<div class="container mb-5 pb-5">
+    <h2 class="text-center mb-4 fw-bold">Tipos de Eventos</h2>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Conciertos -->
+        <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'img/conciertos.jpg' %}" class="card-img-top" alt="Conciertos" style="height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Conciertos</h5>
+                    <p class="card-text text-muted">Eventos musicales y presentaciones en vivo</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Congresos -->
+        <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'img/congresos.jpg' %}" class="card-img-top" alt="Congresos" style="height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Congresos</h5>
+                    <p class="card-text text-muted">Conferencias profesionales y encuentros corporativos</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ferias -->
+        <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="{% static 'img/ferias.jpg' %}" class="card-img-top" alt="Ferias" style="height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Ferias</h5>
+                    <p class="card-text text-muted">Exposiciones comerciales y eventos de negocios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

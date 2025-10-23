@@ -1,12 +1,14 @@
 from django.urls import path
+from .views import index, RegistroEventoView, SignupView, ListaEventosRegistradosView
+from .views import custom_logout
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='root'),
-    path('index/', views.index, name='inicio'),
-    path('registro_evento/', views.registro_evento, name='registro_evento'),
-    path('registro_usuario/', views.registro_user, name='registro_usuario'),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('signup/', views.signup_view, name='signup'),
+    path('', index, name='root'),
+    path('index/', index, name='inicio'),
+    path('registro_evento/', RegistroEventoView.as_view(), name='registro_evento'),
+    path('signup/', SignupView.as_view(), name='signup'),
+    path('logout/', views.custom_logout, name='logout'),
+    path('login/', views.LoginView.as_view(), name='login'),
+    path('lista_eventos/', views.ListaEventosRegistradosView.as_view(), name='lista_eventos'),
 ]

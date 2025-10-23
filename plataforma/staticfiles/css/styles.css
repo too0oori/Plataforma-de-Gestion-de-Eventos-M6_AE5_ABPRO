@@ -1,0 +1,38 @@
+:root {
+        --color-rosado-primary: #FF00AA;
+        --color-rosado-hover: #FF00BB;
+        --color-rosado-active: #CC0099;
+    }
+html, body {
+    height: 100%;
+}
+    
+body {
+    display: flex;
+    flex-direction: column;
+}
+    
+main {
+    flex: 1 0 auto;
+}
+    
+footer {
+    flex-shrink: 0;
+}
+
+btn-rosado {
+    background-color: #ff00aa !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+btn-rosado:hover {
+    background-color: #dd0099 !important;
+    color: #fff !important;
+}
+
+btn-rosado:focus,
+btn-rosado:active {
+    background-color: #cc0088 !important;
+    color: #fff !important;
+}

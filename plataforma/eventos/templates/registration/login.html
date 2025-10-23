@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow p-4 mt-5">
+            <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
+            
+            <form method="post">
+                {% csrf_token %}
+                
+                {{ form.as_p }} 
+                
+                <input type="hidden" name="next" value="{{ next }}">
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-rosado">Ingresar</button>
+                </div>
+
+            </form>
+
+            <hr>
+            <p class="texto-rosado text-center">
+                <a href="{% url 'signup' %}">¿No tienes cuenta? Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

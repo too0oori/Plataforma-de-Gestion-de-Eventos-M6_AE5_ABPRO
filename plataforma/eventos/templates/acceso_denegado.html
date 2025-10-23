@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Acceso Denegado{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4 text-center" style="max-width: 500px;">
+    <h2 class="text-danger fw-bold mb-3">🚫 Acceso Denegado</h2>
+    <p class="mb-4">No tienes los permisos necesarios para ver esta página o realizar esta acción.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al inicio</a>
+  </div>
+</div>
+{% endblock %}

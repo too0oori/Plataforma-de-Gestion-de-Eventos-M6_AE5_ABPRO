@@ -1,0 +1,52 @@
+:root {
+    --color-rosado-primary: #ff00aa;
+    --color-rosado-hover: #dd0099;
+    --color-rosado-active: #CC0099;
+}
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+}
+main {
+    flex: 1;
+}
+footer {
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+.btn-rosado {
+    background-color: var(--color-rosado-primary) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-rosado:hover {
+    background-color: var(--color-rosado-hover) !important;
+    color: #fff !important;
+}
+
+.btn-rosado:focus,
+.btn-rosado:active {
+    background-color: var(--color-rosado-active) !important;
+    color: #fff !important;
+}
+
+.text-decoration-none {
+    color: var(--color-rosado-primary);
+}
+
+.texto-rosado {
+    color: var(--color-rosado-primary);
+}
+
+.bg-rosado {
+    background-color: var(--color-rosado-primary);
+}

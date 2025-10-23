@@ -1,0 +1,17 @@
+{% extends 'base_formulario.html' %}
+
+{% block form_title %}Formulario de Éxito{% endblock %}
+
+{% block form_body %}
+    <div class="alert alert-success" role="alert">
+        ¡El formulario se ha enviado con éxito!
+    </div>
+{% endblock %}
+
+{% block submit_text %}Volver al Inicio{% endblock %}
+
+{% block extra_links %}
+    <div class="text-center mt-3">
+        <a href="{% url 'root' %}" class="btn btn-link">Volver al Inicio</a>
+    </div>
+{% endblock %}
