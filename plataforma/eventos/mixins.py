@@ -4,7 +4,11 @@ from django.shortcuts import redirect
 from .models import Eventos
 
 class AdminOrOrganizerRequiredMixin(UserPassesTestMixin):
-    """Mixin que permite acceso solo a administradores u organizadores"""
+    """
+    Mixin que restringe el acceso solo a usuarios autenticados que pertenezcan
+    a los grupos 'Administrador' u 'Organizador'. Si no cumplen, se redirige al inicio.
+    """
+    
     permission_denied_redirect = 'inicio'
 
     def dispatch(self, request, *args, **kwargs):

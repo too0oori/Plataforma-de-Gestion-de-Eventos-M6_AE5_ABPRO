@@ -20,7 +20,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Obliga a redirigir todo el tráfico HTTP a HTTPS para produccion
 #SECURE_SSL_REDIRECT = True
 
-# Indica que las cookies de sesión y CSRF solo se envían por HTTPS, para produccion
+# Fuerza el uso de HTTPS y cookies seguras (solo activar en producción)
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
 

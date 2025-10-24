@@ -4,6 +4,11 @@ from django import forms
 from .models import Eventos
 
 class EventoForm(forms.ModelForm):
+
+    """
+    Formulario para crear o editar eventos.
+    Usa widgets Bootstrap para una mejor experiencia de usuario.
+    """
     class Meta:
         model = Eventos
         fields = ['nombre', 'descripcion', 'fecha', 'organizador']
