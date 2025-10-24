@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-
 {% block title %}Mis Eventos Registrados{% endblock %}
-
 {% block content %}
 
 <div class="container my-5">
@@ -9,28 +7,24 @@
         <h2 class="fw-bold texto-muted">
             <i class="fas fa-calendar-check me-2 text-muted"></i> Mis Eventos Registrados
         </h2>
-        {% comment %} 
         {% if perms.eventos.add_eventos %}
         <a href="{% url 'registro_evento' %}" class="btn btn-success shadow-sm">
             <i class="fas fa-plus me-2"></i> Registrar Nuevo Evento
         </a>
-        {% endif %} 
-        {% endcomment %}
+        {% endif %}
     </div>
-
+    
     {% if eventos %}
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="row">
             {% for evento in eventos %}
-            <div class="col">
-                <div class="card h-100 shadow-sm border-light">
-                    <div class="card-header bg-rosado text-white">
-                        <h5 class="card-title mb-0 fw-bold">{{ evento.nombre }}</h5>
-                    </div>
-                    
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
                     <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ evento.nombre }}</h5>
+                       
                         <div class="mb-3">
                             <p class="card-text text-muted mb-1">
-                                <i class="far fa-calendar-alt me-2 texto-rosado"></i> 
+                                <i class="far fa-calendar-alt me-2 texto-rosado"></i>
                                 Fecha: {{ evento.fecha }}
                             </p>
                             {% if evento.descripcion %}
@@ -40,24 +34,41 @@
                             {% endif %}
                         </div>
                     </div>
-
-                    <div class="card-footer text-muted small">
-                        {% if evento.ubicacion %}
-                            <i class="fas fa-map-marker-alt me-1"></i> Ubicación: {{ evento.ubicacion }}
-                        {% else %}
-                            Estado: Registrado
-                        {% endif %}
+                   
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            {% if evento.ubicacion %}
+                                <small class="text-muted">
+                                    <i class="fas fa-map-marker-alt me-1"></i> {{ evento.ubicacion }}
+                                </small>
+                            {% else %}
+                                <small class="text-muted">Estado: Registrado</small>
+                            {% endif %}
+                        </div>
+                       
+                        <div class="btn-group" role="group">
+                            {% if puede_editar %}
+                                <a href="{% url 'editar_evento' evento.pk %}" class="btn btn-rosado btn-sm">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+                            {% endif %}
+                        
+                            {% if puede_eliminar %}
+                                <a href="{% url 'eliminar_evento' evento.pk %}" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-
     {% else %}
         <div class="alert alert-info text-center shadow-sm" role="alert">
             <h4 class="alert-heading"><i class="fas fa-info-circle"></i> ¡Aún no hay eventos!</h4>
+            <p class="mb-0">No estás registrado en ningún evento todavía.</p>
         </div>
     {% endif %}
 </div>
-
 {% endblock content %}

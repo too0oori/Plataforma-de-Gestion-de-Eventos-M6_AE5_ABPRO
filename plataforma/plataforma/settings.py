@@ -12,10 +12,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+tqcf4(3b83imck9&lu#3571h*%qoc%mdgbn5vxq!@vqc$r#u8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#false para mostrar error 404
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+# Obliga a redirigir todo el tráfico HTTP a HTTPS para produccion
+#SECURE_SSL_REDIRECT = True
+
+# Indica que las cookies de sesión y CSRF solo se envían por HTTPS, para produccion
+#CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -45,9 +52,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'eventos/templates'),  # Ruta absoluta a tu carpeta de plantillas
+            os.path.join(BASE_DIR, 'eventos/templates'),
         ],
-        'APP_DIRS': False,  # Desactiva APP_DIRS
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

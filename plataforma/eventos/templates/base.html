@@ -37,11 +37,6 @@
                                     <a class="nav-link" href="{% url 'registro_evento' %}">Registrar Eventos</a>
                                 </li>
                             {% endif %}
-                            {% if perms.eventos.add_user %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'registro_persona' %}">Registrar Personas</a>
-                                </li>
-                            {% endif %}
                             {% if perms.eventos.view_eventos %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'lista_eventos' %}">Eventos</a>
@@ -53,12 +48,14 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <form method="post" action="{% url 'logout' %}">
-                                            {% csrf_token %}
-                                            <button class="dropdown-item" type="submit">
-                                                <i class="fa fa-sign-out-alt"></i> Cerrar sesión
-                                            </button>
-                                        </form>
+                                        {% if user.is_authenticated %}
+                                            <form method="post" action="{% url 'logout' %}">
+                                                {% csrf_token %}
+                                                <button class="dropdown-item" type="submit">
+                                                    <i class="fa fa-sign-out-alt"></i> Cerrar sesión
+                                                </button>
+                                            </form>
+                                        {% endif %}
                                     </li>
                                 </ul>
                             </li>

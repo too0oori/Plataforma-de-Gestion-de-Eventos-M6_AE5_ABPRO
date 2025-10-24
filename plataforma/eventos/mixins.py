@@ -11,7 +11,7 @@ class AdminOrOrganizerRequiredMixin(UserPassesTestMixin):
         if not request.user.is_authenticated:
             messages.info(request, "Debes iniciar sesión para acceder a esta página.")
             return redirect('login')
-        if not request.user.groups.filter(name__in=['Administrador', 'Organizador']).exists():
+        if not request.user.groups.filter(name__in=['Administrador', 'Organizadores']).exists():
             messages.error(request, "No tienes permisos suficientes para acceder a esta página.")
             return redirect(self.permission_denied_redirect)
         return super().dispatch(request, *args, **kwargs)
@@ -31,4 +31,4 @@ class CustomPermissionMixin(LoginRequiredMixin, PermissionRequiredMixin):
 
 class EventosRegistradosMixin(LoginRequiredMixin):
     model = Eventos
-    template_name = 'lista_eventos'
+    template_name = 'lista_eventos.html'
